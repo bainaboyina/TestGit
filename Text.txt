@@ -1,0 +1,3 @@
+Duration: Aug2019 to Current
+Description: Device Manager is a Network orchestration platform providing Network Management and SDN control for access network. With microservice and scalable architecture, this platform supports management of network elements and services with open integration of any controller and technology from different vendors.  
+Responsibility:   
