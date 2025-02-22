@@ -1,1 +1,10 @@
-ti tbh hb  cychhu hcwyc  nuvh uic uhucnu 
+ti tbh hb  cychhu hcwyc  nuvh uic uhucnu
+resource "aws_instance" "my_instance" {
+  ami           = var.ec2_ami
+  instance_type = var.ec2_instance_type
+  subnet_id     = aws_subnet.my_subnet.id
+  vpc_security_group_ids = [aws_security_group.my_sg.id
+  tags = {
+    Name = "my-ec2-instance"
+  }
+}
