@@ -1,10 +1,23 @@
 ti tbh hb  cychhu hcwyc  nuvh uic uhucnu
-resource "aws_instance" "my_instance" {
-  ami           = var.ec2_ami
-  instance_type = var.ec2_instance_type
-  subnet_id     = aws_subnet.my_subnet.id
-  vpc_security_group_ids = [aws_security_group.my_sg.id
-  tags = {
-    Name = "my-ec2-instance"
+resource "aws_security_group" "my_sg" {
+  name        = "my-security-group"
+  description = "Allow inbound SSH and HTTP traffic"
+  inbound {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  inbound {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  outbound {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
